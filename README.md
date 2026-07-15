@@ -1,20 +1,5 @@
 # Chatbot Screening Karyawan — TalentMatch AI
 
-<div align="center">
-
-![TalentMatch AI](https://img.shields.io/badge/TalentMatch-AI-6366f1?style=for-the-badge&logo=openai&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white)
-![LangGraph](https://img.shields.io/badge/LangGraph-Agentic-orange?style=for-the-badge&logo=langchain&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-
-**Platform AI untuk otomatisasi proses screening & wawancara kandidat secara cerdas dan terstruktur.**
-
-[Demo](#demo) · [Fitur](#fitur-utama) · [Instalasi](#instalasi) · [Arsitektur](#arsitektur-sistem)
-
-</div>
-
----
-
 ## Deskripsi
 
 **TalentMatch AI** adalah aplikasi web berbasis AI yang dirancang untuk membantu tim HR dalam melakukan proses **screening dan wawancara kandidat** secara otomatis dan efisien. Sistem ini menggunakan pipeline agentic multi-fase yang ditenagai oleh LangGraph dan LLM untuk menganalisis CV, melakukan wawancara HR & teknikal, mengevaluasi kandidat, lalu memberikan rekomendasi akhir secara objektif.
