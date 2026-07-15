@@ -262,9 +262,3 @@ Kontribusi sangat diterima! Silakan:
 Proyek ini dilisensikan di bawah **MIT License**.
 
 ---
-
-<div align="center">
-
-Dibuat dengan ❤️ oleh [kevinprsetyo](https://github.com/kevinprsetyo)
-
-</div>
