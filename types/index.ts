@@ -96,3 +96,92 @@ export const JOB_POSITIONS: JobPosition[] = [
   'UI UX Designer',
   'QA Engineer',
 ]
+
+// ─────────────────────────────────────────────────────────────
+// TWO-PHASE PIPELINE — New Interfaces
+// ─────────────────────────────────────────────────────────────
+
+/** Extended CV Analysis with match scoring (replaces CVAnalysis for new pipeline) */
+export interface EnhancedCVAnalysis extends CVAnalysis {
+  strengths: string[]
+  missing_skills: string[]
+  match_score: number // 0–100
+}
+
+/** Extended CandidateProfile for new pipeline */
+export interface EnhancedCandidateProfile extends CandidateProfile {
+  cvAnalysis: EnhancedCVAnalysis
+}
+
+// ─── HR Phase ────────────────────────────────────────────────
+
+export type CoverageDimension = 'unknown' | 'partial' | 'complete'
+
+export interface HRCoverage {
+  motivation: CoverageDimension
+  communication: CoverageDimension
+  collaboration: CoverageDimension
+  leadership: CoverageDimension
+  adaptability: CoverageDimension
+  career_goal: CoverageDimension
+}
+
+export interface HREvaluationResult {
+  communication: number
+  motivation: number
+  leadership: number
+  adaptability: number
+  overall_hr_score: number
+  notes: string
+}
+
+// ─── Technical Phase ──────────────────────────────────────────
+
+export interface TechnicalCoverage {
+  technical_depth: CoverageDimension
+  experience_validation: CoverageDimension
+  problem_solving: CoverageDimension
+  system_understanding: CoverageDimension
+}
+
+export interface TechnicalEvaluationResult {
+  technical_score: number
+  problem_solving_score: number
+  experience_validation_score: number
+  notes: string
+}
+
+// ─── Final Recommendation ─────────────────────────────────────
+
+export type RecommendationDecision =
+  | 'Proceed to Human Interview'
+  | 'Need Further Review'
+  | 'Not Recommended'
+
+export interface RecommendationResult {
+  overall_score: number
+  cv_match_score: number
+  hr_score: number
+  technical_score: number
+  recommendation: RecommendationDecision
+  strengths: string[]
+  areas_for_development: string[]
+  red_flags: string[]
+  ai_notes: string
+  suggested_focus_for_interviewer: string[]
+}
+
+// ─── Pipeline Phase Tracking ──────────────────────────────────
+
+export type PipelinePhase =
+  | 'apply'
+  | 'cv_analysis'
+  | 'hr_interview'
+  | 'hr_evaluation'
+  | 'decision'
+  | 'technical_interview'
+  | 'technical_evaluation'
+  | 'recommendation'
+  | 'complete'
+
+export const HR_SCORE_THRESHOLD = 75

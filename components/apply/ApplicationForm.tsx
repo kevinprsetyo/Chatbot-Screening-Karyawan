@@ -113,7 +113,7 @@ export default function ApplicationForm() {
 
   const handleLoadingComplete = () => {
     if (analysisResult?.candidate?.id) {
-      router.push(`/interview/${analysisResult.candidate.id}`)
+      router.push(`/hr-interview/${analysisResult.candidate.id}`)
     }
   }
 

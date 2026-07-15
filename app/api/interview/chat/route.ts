@@ -3,8 +3,8 @@ import {
   buildInterviewSystemPrompt,
   buildContinueInterviewPrompt,
   isInterviewComplete,
-} from '@/lib/ollama/interview-engine'
-import { ollamaChatStream } from '@/lib/ollama/client'
+} from '@/ai/ollama/interview-engine'
+import { ollamaChatStream } from '@/ai/ollama/client'
 import type { CVAnalysis, InterviewMessage } from '@/types'
 
 export const runtime = 'nodejs'

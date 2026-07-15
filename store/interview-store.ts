@@ -10,12 +10,17 @@ interface InterviewState {
   isThinking: boolean
   result: EvaluationResult | null
   error: string | null
+  retrievedContext: string
+  decision: string | null
+  reasoning: string | null
   addMessage: (message: InterviewMessage) => void
   incrementQuestionCount: () => void
   setComplete: (complete: boolean) => void
   setThinking: (thinking: boolean) => void
   setResult: (result: EvaluationResult) => void
   setError: (error: string | null) => void
+  setRetrievedContext: (context: string) => void
+  setDecision: (decision: string | null, reasoning: string | null) => void
   resetInterview: () => void
 }
 
@@ -26,6 +31,9 @@ export const useInterviewStore = create<InterviewState>()((set) => ({
   isThinking: false,
   result: null,
   error: null,
+  retrievedContext: "",
+  decision: null,
+  reasoning: null,
   addMessage: (message) =>
     set((state) => ({ messages: [...state.messages, message] })),
   incrementQuestionCount: () =>
@@ -34,6 +42,8 @@ export const useInterviewStore = create<InterviewState>()((set) => ({
   setThinking: (isThinking) => set({ isThinking }),
   setResult: (result) => set({ result }),
   setError: (error) => set({ error }),
+  setRetrievedContext: (retrievedContext) => set({ retrievedContext }),
+  setDecision: (decision, reasoning) => set({ decision, reasoning }),
   resetInterview: () =>
     set({
       messages: [],
@@ -42,5 +52,8 @@ export const useInterviewStore = create<InterviewState>()((set) => ({
       isThinking: false,
       result: null,
       error: null,
+      retrievedContext: "",
+      decision: null,
+      reasoning: null,
     }),
 }))

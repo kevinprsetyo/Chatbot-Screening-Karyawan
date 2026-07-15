@@ -38,7 +38,21 @@ export default function DecisionBadge({ result }: Props) {
     },
   }
 
-  const cfg = config[result.decision]
+  // Normalize Indonesian decision strings from graph.ts agent to English keys
+  const normalizeDecision = (decision: string): 'ACCEPTED' | 'CONSIDERED' | 'REJECTED' => {
+    const map: Record<string, 'ACCEPTED' | 'CONSIDERED' | 'REJECTED'> = {
+      ACCEPTED: 'ACCEPTED',
+      CONSIDERED: 'CONSIDERED',
+      REJECTED: 'REJECTED',
+      DITERIMA: 'ACCEPTED',
+      DIPERTIMBANGKAN: 'CONSIDERED',
+      DITOLAK: 'REJECTED',
+    }
+    return map[decision?.toUpperCase()] ?? 'CONSIDERED'
+  }
+
+  const normalizedDecision = normalizeDecision(result.decision)
+  const cfg = config[normalizedDecision] ?? config['CONSIDERED']
 
   return (
     <motion.div

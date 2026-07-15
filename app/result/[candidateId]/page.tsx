@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ResultPageClient from '@/components/result/ResultPageClient'
+import NewResultPageClient from '@/components/result/NewResultPageClient'
 
 export const metadata: Metadata = {
   title: 'Hasil Evaluasi — TalentMatch AI',
@@ -12,5 +12,5 @@ interface Props {
 
 export default async function ResultPage({ params }: Props) {
   const { candidateId } = await params
-  return <ResultPageClient candidateId={candidateId} />
+  return <NewResultPageClient candidateId={candidateId} />
 }

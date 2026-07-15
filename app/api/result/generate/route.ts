@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { generateEvaluation } from '@/lib/ollama/scoring-engine'
+import { generateEvaluation } from '@/ai/ollama/scoring-engine'
 import type { CVAnalysis, InterviewMessage } from '@/types'
 
 export const runtime = 'nodejs'

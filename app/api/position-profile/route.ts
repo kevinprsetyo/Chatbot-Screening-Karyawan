@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { generatePositionProfile } from '@/lib/ollama/position-profiler'
+import { generatePositionProfile } from '@/ai/ollama/position-profiler'
 
 export async function POST(req: Request) {
   try {

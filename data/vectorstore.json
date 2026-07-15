@@ -1,0 +1,266 @@
+[
+  {
+    "pageContent": "Job Description for Frontend Developer: Must have experience with React, Next.js, and TypeScript. Understanding of state management like Zustand or Redux is required. Experience with CSS frameworks and responsive design is essential.",
+    "metadata": {
+      "type": "jd",
+      "role": "Frontend Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Frontend Developer: To pass, the candidate must demonstrate strong knowledge of React hooks (useState, useEffect, useMemo, useCallback), server-side rendering in Next.js, and clean code practices. Reject if candidate lacks basic TypeScript understanding or cannot explain component lifecycle.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Frontend Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Frontend Developer: 1. How does the event loop work in JavaScript? 2. Explain the difference between useMemo and useCallback. 3. How do you manage global state in a Next.js app? 4. What is the Virtual DOM and how does React use it? 5. Explain CSR vs SSR vs SSG in Next.js.",
+    "metadata": {
+      "type": "questions",
+      "role": "Frontend Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Backend Developer: Node.js, Express or NestJS, PostgreSQL or MySQL, and basic understanding of Docker. RESTful API design is required. Microservices experience is a plus.",
+    "metadata": {
+      "type": "jd",
+      "role": "Backend Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Backend Developer: Candidate should understand RESTful API design, database indexing, and asynchronous programming in Node.js. Must understand authentication (JWT, OAuth). Reject if unable to explain SQL joins or database transactions.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Backend Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Backend Developer: 1. Explain the difference between SQL and NoSQL. 2. How do you handle authentication in a Node.js API? 3. What is a memory leak and how do you prevent it in Node.js? 4. Explain the concept of middleware in Express. 5. How do database indexes work and when should you use them?",
+    "metadata": {
+      "type": "questions",
+      "role": "Backend Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Fullstack Developer: Proficiency in both frontend (React, Next.js) and backend (Node.js, Express) development. Experience with databases (PostgreSQL, MongoDB), REST API design, and deployment. Must understand the full web application architecture.",
+    "metadata": {
+      "type": "jd",
+      "role": "Fullstack Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Fullstack Developer: Candidate must demonstrate competence in both frontend and backend areas. Must be able to architect a full system from database to UI. Reject if candidate is strongly limited to only one side (front or back) or cannot explain how frontend and backend communicate.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Fullstack Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Fullstack Developer: 1. How do you structure a full-stack project with Next.js and a Node.js API? 2. Explain the flow from a user clicking a button to data being saved in a database. 3. How do you handle CORS in a fullstack application? 4. What is the difference between REST and GraphQL? 5. How do you manage shared types between frontend and backend in a TypeScript project?",
+    "metadata": {
+      "type": "questions",
+      "role": "Fullstack Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Mobile Developer: Experience with React Native or Flutter for cross-platform development, or Swift/Kotlin for native apps. Understanding of mobile UI/UX principles, app lifecycle, and publishing to App Store or Play Store is required.",
+    "metadata": {
+      "type": "jd",
+      "role": "Mobile Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Mobile Developer: Must demonstrate understanding of mobile-specific concepts: app state management, navigation, handling device permissions, push notifications, and offline-first design. Reject if candidate cannot explain the difference between native and cross-platform development or has no published app experience.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Mobile Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Mobile Developer: 1. What are the main differences between React Native and Flutter? 2. How do you handle offline data storage in a mobile app? 3. Explain the mobile app lifecycle (foreground, background, suspended). 4. How do you implement push notifications? 5. What strategies do you use to optimize mobile app performance?",
+    "metadata": {
+      "type": "questions",
+      "role": "Mobile Developer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Data Analyst: Proficiency in SQL, Python (Pandas, NumPy), and data visualization tools (Tableau, Power BI, or Matplotlib). Ability to clean, transform, and analyze large datasets to generate business insights. Experience with Excel is required.",
+    "metadata": {
+      "type": "jd",
+      "role": "Data Analyst"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Data Analyst: Must demonstrate ability to write complex SQL queries, clean and handle missing data, and present insights clearly. Must understand basic statistics (mean, median, correlation). Reject if candidate cannot write a GROUP BY query or cannot explain the difference between a bar chart and a histogram.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Data Analyst"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Data Analyst: 1. How do you handle missing or null values in a dataset? 2. Write a SQL query to find the top 5 customers by revenue. 3. What is the difference between INNER JOIN and LEFT JOIN? 4. How do you detect and handle outliers in data? 5. Explain the difference between correlation and causation with an example.",
+    "metadata": {
+      "type": "questions",
+      "role": "Data Analyst"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Data Scientist: Strong background in statistics, machine learning (Scikit-learn, TensorFlow, PyTorch), and Python. Experience with model training, evaluation, and deployment. Understanding of feature engineering, cross-validation, and A/B testing is required.",
+    "metadata": {
+      "type": "jd",
+      "role": "Data Scientist"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Data Scientist: Must understand supervised vs unsupervised learning, bias-variance tradeoff, and model evaluation metrics (precision, recall, F1, AUC-ROC). Must be able to explain model choices. Reject if candidate cannot explain overfitting or has no experience with a full end-to-end ML pipeline.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Data Scientist"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Data Scientist: 1. Explain the bias-variance tradeoff. 2. What is the difference between bagging and boosting? 3. How do you handle class imbalance in a classification problem? 4. Explain precision vs recall and when each is more important. 5. Walk me through how you would build a churn prediction model from scratch.",
+    "metadata": {
+      "type": "questions",
+      "role": "Data Scientist"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Machine Learning Engineer: Experience deploying ML models to production using MLOps practices. Proficiency in Python, TensorFlow or PyTorch, Docker, and cloud platforms (AWS SageMaker, GCP Vertex AI). Experience with model monitoring and CI/CD for ML pipelines.",
+    "metadata": {
+      "type": "jd",
+      "role": "Machine Learning Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Machine Learning Engineer: Must understand model serving architectures (REST API, gRPC), containerization, and model versioning. Must demonstrate experience with MLOps tools (MLflow, Kubeflow, or similar). Reject if candidate has no experience deploying a model to production or cannot explain concept drift.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Machine Learning Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Machine Learning Engineer: 1. What is concept drift and how do you detect it in a deployed model? 2. Explain how you would serve a PyTorch model as a REST API. 3. What is the difference between online learning and batch learning? 4. How do you version and track ML experiments? 5. Describe the components of an end-to-end ML pipeline in production.",
+    "metadata": {
+      "type": "questions",
+      "role": "Machine Learning Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for DevOps Engineer: Proficiency with Docker, Kubernetes, and CI/CD pipelines (GitHub Actions, Jenkins, or GitLab CI). Experience with cloud providers (AWS, GCP, or Azure), Infrastructure as Code (Terraform or Ansible), and monitoring tools (Prometheus, Grafana, or Datadog).",
+    "metadata": {
+      "type": "jd",
+      "role": "DevOps Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for DevOps Engineer: Must demonstrate understanding of container orchestration, CI/CD pipeline design, and zero-downtime deployment strategies (blue-green, canary). Must understand Linux system administration. Reject if candidate cannot explain the difference between a container and a virtual machine, or has never set up a CI/CD pipeline.",
+    "metadata": {
+      "type": "rubric",
+      "role": "DevOps Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for DevOps Engineer: 1. What is the difference between a Docker container and a virtual machine? 2. Explain how Kubernetes handles container scaling and load balancing. 3. What is a blue-green deployment and why is it used? 4. How do you implement secrets management in a Kubernetes cluster? 5. Explain the concept of Infrastructure as Code and the benefits of using Terraform.",
+    "metadata": {
+      "type": "questions",
+      "role": "DevOps Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for Cyber Security Analyst: Experience with network security, vulnerability assessment, penetration testing, and SIEM tools. Knowledge of OWASP Top 10, firewalls, IDS/IPS systems, and incident response procedures. Security certifications (CEH, OSCP, CompTIA Security+) are a strong plus.",
+    "metadata": {
+      "type": "jd",
+      "role": "Cyber Security Analyst"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for Cyber Security Analyst: Must demonstrate understanding of the CIA triad, common attack vectors (SQL injection, XSS, MITM), and how to mitigate them. Must understand incident response lifecycle. Reject if candidate cannot explain the difference between authentication and authorization, or has no hands-on experience with security tools.",
+    "metadata": {
+      "type": "rubric",
+      "role": "Cyber Security Analyst"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for Cyber Security Analyst: 1. Explain the CIA triad and give a real-world example for each. 2. How does a SQL injection attack work and how do you prevent it? 3. What is the difference between symmetric and asymmetric encryption? 4. How would you respond to a ransomware attack on the company's server? 5. What is a zero-day vulnerability and how do you protect against unknown threats?",
+    "metadata": {
+      "type": "questions",
+      "role": "Cyber Security Analyst"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for UI UX Designer: Proficiency in Figma or Adobe XD for wireframing and prototyping. Strong understanding of user-centered design principles, design systems, and accessibility (WCAG). Experience conducting user research, usability testing, and translating findings into design decisions.",
+    "metadata": {
+      "type": "jd",
+      "role": "UI UX Designer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for UI UX Designer: Must present a portfolio demonstrating strong visual design and UX thinking. Must explain the design process from research to final deliverable. Reject if candidate focuses only on aesthetics without user research, or cannot explain the difference between UX and UI, or has no experience with usability testing.",
+    "metadata": {
+      "type": "rubric",
+      "role": "UI UX Designer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for UI UX Designer: 1. Walk me through your design process from research to final handoff. 2. What is the difference between UX and UI design? 3. How do you conduct a usability test and what do you do with the results? 4. Explain what a design system is and why it is important. 5. How do you ensure your designs are accessible to users with disabilities?",
+    "metadata": {
+      "type": "questions",
+      "role": "UI UX Designer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Job Description for QA Engineer: Experience with manual and automated testing. Proficiency in test automation frameworks (Selenium, Cypress, Playwright, or Appium). Understanding of SDLC, test planning, writing test cases, bug reporting, and API testing (Postman). Knowledge of performance testing tools is a plus.",
+    "metadata": {
+      "type": "jd",
+      "role": "QA Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Rubric for QA Engineer: Must demonstrate systematic approach to test case design and bug reporting. Must understand the difference between functional, integration, and regression testing. Must have experience with at least one automation framework. Reject if candidate cannot explain what a test plan contains, or has never written automated tests.",
+    "metadata": {
+      "type": "rubric",
+      "role": "QA Engineer"
+    },
+    "embedding": null
+  },
+  {
+    "pageContent": "Technical Interview Questions for QA Engineer: 1. What is the difference between functional testing, regression testing, and integration testing? 2. How do you prioritize which test cases to automate? 3. Walk me through the components of a well-written bug report. 4. How do you test an API endpoint using Postman? 5. What is the difference between black-box testing and white-box testing?",
+    "metadata": {
+      "type": "questions",
+      "role": "QA Engineer"
+    },
+    "embedding": null
+  }
+]

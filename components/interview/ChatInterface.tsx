@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Loader2, User, CheckCircle2, Brain, Search, MessageSquare } from 'lucide-react'
 import { useCandidateStore } from '@/store/candidate-store'
 import { useInterviewStore } from '@/store/interview-store'
-import { parseCategory } from '@/lib/ollama/interview-engine'
 import type { InterviewMessage, QuestionCategory } from '@/types'
 
 // ─────────────────────────────────────────────────────────────
@@ -274,77 +273,56 @@ export default function InterviewInterface({ candidateId }: { candidateId: strin
     setStreamingMessage(null)
 
     try {
-      const res = await fetch('/api/interview/chat', {
+      // Tunggu minimal 1.5 detik agar animasi "AI Thinking" terlihat wajar
+      const thinkingPromise = new Promise((r) => setTimeout(r, 1500))
+      
+      const fetchPromise = fetch('/api/agent-interview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          applicantName: candidate.fullName,
+          appliedPosition: candidate.position,
+          cvText: JSON.stringify(candidate.cvAnalysis),
           messages: currentMessages,
-          cvAnalysis: candidate.cvAnalysis,
-          position: candidate.position,
-          questionCount: currentMessages.filter((m) => m.role === 'assistant').length,
+          retrievedContext: useInterviewStore.getState().retrievedContext,
         }),
+      }).then(res => {
+        if (!res.ok) throw new Error('Failed to get interview question')
+        return res.json()
       })
 
-      if (!res.ok) throw new Error('Failed to get interview question')
-
-      const reader = res.body!.getReader()
-      const decoder = new TextDecoder()
-      let rawContent = ''
-
-      // Wait for thinking indicator to show for at least 1.5 seconds
-      const thinkingStart = Date.now()
-
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) break
-
-        const chunk = decoder.decode(value, { stream: true })
-        const lines = chunk.split('\n')
-        for (const line of lines) {
-          if (line.startsWith('{"__meta"')) {
-            try {
-              const meta = JSON.parse(line)
-              if (meta.__meta?.isComplete) setComplete(true)
-            } catch { /* ignore */ }
-          } else {
-            rawContent += line
-          }
-        }
+      const [_, data] = await Promise.all([thinkingPromise, fetchPromise])
+      
+      if (data.retrievedContext) {
+        useInterviewStore.getState().setRetrievedContext(data.retrievedContext)
       }
 
-      // Enforce minimum thinking duration of 1.5s
-      const elapsed = Date.now() - thinkingStart
-      if (elapsed < 1500) {
-        await new Promise((r) => setTimeout(r, 1500 - elapsed))
+      const isInterviewDone = data.status === 'finished'
+
+      const newMsg: InterviewMessage = {
+        role: 'assistant',
+        content: data.message?.content || "Mohon maaf, terjadi kendala saat merespons.",
+        category: isInterviewDone ? 'PENUTUP' : 'UMUM',
+        questionNumber: currentMessages.filter((m) => m.role === 'assistant').length + 1,
+        timestamp: new Date().toISOString(),
       }
 
-      const finalRaw = rawContent.trim()
-      if (finalRaw) {
-        const isInterviewDone =
-          finalRaw.toLowerCase().includes('wawancara sekarang telah selesai') ||
-          finalRaw.toLowerCase().includes('the interview is now complete')
-
-        // Parse category prefix from the raw response
-        const { category, content } = parseCategory(finalRaw)
-
-        const newMsg: InterviewMessage = {
-          role: 'assistant',
-          content: isInterviewDone ? finalRaw : content,
-          category: isInterviewDone ? 'PENUTUP' : category,
-          questionNumber: currentMessages.filter((m) => m.role === 'assistant').length + 1,
-          timestamp: new Date().toISOString(),
-        }
-
-        // Animate the final message appearing
-        setStreamingMessage(newMsg)
-        await new Promise((r) => setTimeout(r, 80))
-        addMessage(newMsg)
-        setStreamingMessage(null)
-
-        if (isInterviewDone || questionCount >= MAX_QUESTIONS) {
-          setComplete(true)
-        }
+      addMessage(newMsg)
+      
+      if (isInterviewDone) {
+        setComplete(true)
+        useInterviewStore.getState().setDecision(data.decision, data.reasoning)
+        // Set mock result so it doesn't crash the result page
+        setResult({
+          overallScore: data.decision === 'DITERIMA' ? 90 : data.decision === 'DIPERTIMBANGKAN' ? 70 : 40,
+          strengths: [data.reasoning || "Telah dinilai oleh Agent RAG"],
+          weaknesses: [],
+          recommendation: data.decision
+        } as any)
+      } else if (questionCount >= MAX_QUESTIONS) {
+        setComplete(true)
       }
+
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Failed to generate question'
       setError(msg)
@@ -381,27 +359,11 @@ export default function InterviewInterface({ candidateId }: { candidateId: strin
     if (!candidate) return
     setIsGeneratingResult(true)
 
-    try {
-      const res = await fetch('/api/result/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages,
-          cvAnalysis: candidate.cvAnalysis,
-          position: candidate.position,
-        }),
-      })
-
-      if (!res.ok) throw new Error('Failed to generate result')
-      const data = await res.json()
-      setResult(data.result)
-      router.push(`/result/${candidateId}`)
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Failed to generate result'
-      setError(msg)
-    } finally {
-      setIsGeneratingResult(false)
-    }
+    // Simulasi loading hasil laporan akhir (karena Agent RAG sudah menentukan)
+    await new Promise((r) => setTimeout(r, 2000))
+    
+    setIsGeneratingResult(false)
+    router.push(`/result/${candidateId}`)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

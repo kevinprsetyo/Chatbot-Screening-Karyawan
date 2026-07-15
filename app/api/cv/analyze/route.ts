@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { randomUUID } from 'crypto'
 import { extractTextFromPDF } from '@/lib/pdf/parser'
-import { analyzeCV } from '@/lib/ollama/cv-analyzer'
 import type { CandidateProfile } from '@/types'
+import { pipelineGraph } from '@/ai/agent/graph'
 
 export const runtime = 'nodejs'
 export const maxDuration = 120
@@ -41,12 +41,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Analyze CV with Ollama
-    const cvAnalysis = await analyzeCV(cvText)
+    // Run CV Analysis phase through LangGraph
+    const initialState = {
+      candidateId: randomUUID(),
+      cvText,
+      position,
+      phase: 'cv_analysis' as const
+    }
+    const finalState = await pipelineGraph.invoke(initialState)
 
     // Build candidate profile
     const candidate: CandidateProfile = {
-      id: randomUUID(),
+      id: finalState.candidateId,
       fullName,
       email,
       phone,
