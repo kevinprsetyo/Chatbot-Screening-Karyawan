@@ -241,9 +241,3 @@ Kontribusi sangat diterima! Silakan:
 5. Buat Pull Request
 
 ---
-
-## Lisensi
-
-Proyek ini dilisensikan di bawah **MIT License**.
-
----
