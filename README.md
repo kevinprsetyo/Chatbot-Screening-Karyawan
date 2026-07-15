@@ -1,4 +1,4 @@
-# 🤖 Chatbot Screening Karyawan — TalentMatch AI
+# Chatbot Screening Karyawan — TalentMatch AI
 
 <div align="center">
 
@@ -9,13 +9,13 @@
 
 **Platform AI untuk otomatisasi proses screening & wawancara kandidat secara cerdas dan terstruktur.**
 
-[Demo](#demo) · [Fitur](#-fitur-utama) · [Instalasi](#-instalasi) · [Arsitektur](#-arsitektur-sistem)
+[Demo](#demo) · [Fitur](#fitur-utama) · [Instalasi](#instalasi) · [Arsitektur](#arsitektur-sistem)
 
 </div>
 
 ---
 
-## 📖 Deskripsi
+## Deskripsi
 
 **TalentMatch AI** adalah aplikasi web berbasis AI yang dirancang untuk membantu tim HR dalam melakukan proses **screening dan wawancara kandidat** secara otomatis dan efisien. Sistem ini menggunakan pipeline agentic multi-fase yang ditenagai oleh LangGraph dan LLM untuk menganalisis CV, melakukan wawancara HR & teknikal, mengevaluasi kandidat, lalu memberikan rekomendasi akhir secara objektif.
 
@@ -23,24 +23,24 @@ Dengan TalentMatch AI, proses rekrutmen menjadi lebih **cepat**, **konsisten**, 
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 
-- 🧠 **AI-Powered CV Analysis** — Analisis otomatis CV kandidat untuk mengekstrak pengalaman, keahlian, dan kesesuaian posisi.
-- 💬 **HR Interview Chatbot** — Wawancara HR interaktif yang menggali motivasi, komunikasi, kolaborasi, kepemimpinan, dan adaptabilitas kandidat.
-- 🛠️ **Technical Interview Chatbot** — Sesi wawancara teknikal adaptif yang menguji kedalaman teknis, problem-solving, dan pemahaman sistem.
-- 📊 **Automated Evaluation** — Penilaian terstruktur berbasis rubrik untuk fase HR dan teknikal secara otomatis.
-- 🎯 **Smart Recommendation** — Rekomendasi akhir berbasis skor gabungan yang dapat dijelaskan secara transparan.
-- 📄 **PDF CV Parsing** — Upload dan parsing CV dalam format PDF secara langsung.
-- 🗃️ **RAG (Retrieval-Augmented Generation)** — Penggunaan ChromaDB untuk knowledge base posisi dan kriteria jabatan.
-- 📈 **Dashboard Hasil** — Tampilan hasil wawancara dan evaluasi yang informatif dan visual.
+- **AI-Powered CV Analysis** — Analisis otomatis CV kandidat untuk mengekstrak pengalaman, keahlian, dan kesesuaian posisi.
+- **HR Interview Chatbot** — Wawancara HR interaktif yang menggali motivasi, komunikasi, kolaborasi, kepemimpinan, dan adaptabilitas kandidat.
+- **Technical Interview Chatbot** — Sesi wawancara teknikal adaptif yang menguji kedalaman teknis, problem-solving, dan pemahaman sistem.
+- **Automated Evaluation** — Penilaian terstruktur berbasis rubrik untuk fase HR dan teknikal secara otomatis.
+- **Smart Recommendation** — Rekomendasi akhir berbasis skor gabungan yang dapat dijelaskan secara transparan.
+- **PDF CV Parsing** — Upload dan parsing CV dalam format PDF secara langsung.
+- **RAG (Retrieval-Augmented Generation)** — Penggunaan ChromaDB untuk knowledge base posisi dan kriteria jabatan.
+- **Dashboard Hasil** — Tampilan hasil wawancara dan evaluasi yang informatif dan visual.
 
 ---
 
-## 🏗️ Arsitektur Sistem
+## Arsitektur Sistem
 
 Sistem menggunakan **LangGraph** untuk mengorkestrasi pipeline agentic multi-fase:
 
-```
+```text
 [Upload CV] → [CV Analyzer Node]
                     ↓
              [HR Interview Node] ⟷ [Coverage Check Node]
@@ -75,9 +75,9 @@ Sistem menggunakan **LangGraph** untuk mengorkestrasi pipeline agentic multi-fas
 
 ---
 
-## 🗂️ Struktur Proyek
+## Struktur Proyek
 
-```
+```text
 talentmatch-ai/
 ├── ai/
 │   ├── agent/
@@ -118,11 +118,12 @@ talentmatch-ai/
 
 ---
 
-## 🚀 Instalasi
+## Instalasi
 
 ### Prasyarat
 
 Pastikan Anda telah menginstal:
+
 - [Node.js](https://nodejs.org/) >= 18
 - [Ollama](https://ollama.com/) (untuk LLM lokal)
 - [ChromaDB](https://www.trychroma.com/) (untuk vector database)
@@ -130,62 +131,73 @@ Pastikan Anda telah menginstal:
 ### Langkah Instalasi
 
 1. **Clone repositori**
-   ```bash
-   git clone https://github.com/kevinprsetyo/Chatbot-Screening-Karyawan.git
-   cd Chatbot-Screening-Karyawan
-   ```
+
+```bash
+git clone https://github.com/kevinprsetyo/Chatbot-Screening-Karyawan.git
+cd Chatbot-Screening-Karyawan
+```
 
 2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+
+```bash
+npm install
+```
 
 3. **Konfigurasi environment variables**
-   ```bash
-   cp .env.local.example .env.local
-   ```
 
-   Kemudian edit `.env.local` dengan konfigurasi Anda:
-   ```env
-   # Ollama API (Cloud/Remote)
-   OLLAMA_API_KEY=your_api_key_here
-   OLLAMA_BASE_URL=https://ollama.com
-   OLLAMA_MODEL=gpt-oss:120b-cloud
+```bash
+cp .env.local.example .env.local
+```
 
-   # Ollama Lokal
-   OLLAMA_LOCAL_URL=http://localhost:11434
-   OLLAMA_EMBEDDING_MODEL=nomic-embed-text
+Kemudian edit `.env.local` dengan konfigurasi Anda:
 
-   # ChromaDB
-   CHROMA_SERVER_URL=http://localhost:8000
-   ```
+```env
+# Ollama API (Cloud/Remote)
+OLLAMA_API_KEY=your_api_key_here
+OLLAMA_BASE_URL=https://ollama.com
+OLLAMA_MODEL=gpt-oss:120b-cloud
+
+# Ollama Lokal
+OLLAMA_LOCAL_URL=http://localhost:11434
+OLLAMA_EMBEDDING_MODEL=nomic-embed-text
+
+# ChromaDB
+CHROMA_SERVER_URL=http://localhost:8000
+```
 
 4. **Jalankan ChromaDB** (vector database)
-   ```bash
-   # Menggunakan Docker
-   docker run -p 8000:8000 chromadb/chroma
-   ```
+
+```bash
+docker run -p 8000:8000 chromadb/chroma
+```
 
 5. **Pull model Ollama lokal** (untuk embedding)
-   ```bash
-   ollama pull nomic-embed-text
-   ```
+
+```bash
+ollama pull nomic-embed-text
+```
 
 6. **Ingest data posisi ke ChromaDB**
-   ```bash
-   npm run ingest
-   ```
+
+```bash
+npm run ingest
+```
 
 7. **Jalankan development server**
-   ```bash
-   npm run dev
-   ```
 
-8. **Buka browser** di [http://localhost:3000](http://localhost:3000)
+```bash
+npm run dev
+```
+
+8. **Buka browser**
+
+```
+http://localhost:3000
+```
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Kategori | Teknologi |
 |----------|-----------|
@@ -204,7 +216,7 @@ Pastikan Anda telah menginstal:
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Deskripsi |
 |--------|----------|-----------|
@@ -215,12 +227,12 @@ Pastikan Anda telah menginstal:
 | `POST` | `/api/technical-interview` | Kirim pesan sesi teknikal |
 | `POST` | `/api/technical-evaluation` | Trigger evaluasi teknikal |
 | `POST` | `/api/recommendation` | Dapatkan rekomendasi akhir |
-| `GET`  | `/api/result` | Ambil hasil evaluasi kandidat |
-| `GET`  | `/api/position-profile` | Profil posisi yang tersedia |
+| `GET` | `/api/result` | Ambil hasil evaluasi kandidat |
+| `GET` | `/api/position-profile` | Profil posisi yang tersedia |
 
 ---
 
-## 🎯 Alur Penggunaan
+## Alur Penggunaan
 
 1. **Kandidat mendaftar** — Mengisi form dan upload CV (PDF)
 2. **Analisis CV** — AI mengekstrak dan menganalisis profil kandidat
@@ -233,7 +245,7 @@ Pastikan Anda telah menginstal:
 
 ---
 
-## 🤝 Kontribusi
+## Kontribusi
 
 Kontribusi sangat diterima! Silakan:
 
@@ -245,7 +257,7 @@ Kontribusi sangat diterima! Silakan:
 
 ---
 
-## 📄 Lisensi
+## Lisensi
 
 Proyek ini dilisensikan di bawah **MIT License**.
 
